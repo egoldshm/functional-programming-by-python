@@ -1,10 +1,19 @@
-def pi(n):
-    def getListByFarmula(n):
-        return list(map(lambda i: ((-1)**(i+1)/(2*i - 1)),range(1,n+1)))
-    return 4*sum(getListByFarmula(n))
+def pi1(n):
+    if(n < 1):
+        return 0
+    return 4*((-1)**(n+1)/(2*n - 1)) + pi1(n - 1)
+
+def pi2(n, num = 0):
+    if(n < 1):
+        return num
+    return pi2(n - 1, num + 4*((-1)**(n+1)/(2*n - 1)))
 def inputNumAndPrintPi():
-    print("\n".join(map(lambda i: str(i) + ":\t" + str(pi(i)),
-                        range(1,int(input("Enter a number:\n>")) +1 ))))
+    def printSinglePi(n):
+        if(n<1):
+            return
+        printSinglePi(n - 1)
+        print(str(n) + ":\t" + str(pi2(n)))
+    printSinglePi(int(input("Enter a number:\n>")))
 
 if __name__ == "__main__":
     inputNumAndPrintPi()

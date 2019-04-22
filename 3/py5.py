@@ -18,7 +18,7 @@ def printMFunctionUntil(n):
     
 
 def inputNumAndPrintM():
-    print(printMFunctionUntil(int(input("Enter a number:\n>"))))
+    printMFunctionUntil(int(input("Enter a number:\n>")))
 
 if __name__ == "__main__":
     inputNumAndPrintM()
