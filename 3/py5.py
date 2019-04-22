@@ -1,9 +1,24 @@
-def m(n):
-    return sum(map(lambda i: i/(i+1), range(1,n +1)))
+def m1(n):
+    if(n<1):
+        return 0
+    return n/(n+1)+ m1(n-1)
+
+def m2(n):
+    def _m2(n, num = 0):
+        if(n<1):
+            return num
+        return _m2(n - 1, num + n/(n+1))
+    return _m2(n)
+
+def printMFunctionUntil(n):
+    if(n<1):
+        return
+    printMFunctionUntil(n - 1)
+    print(m2(n))
+    
 
 def inputNumAndPrintM():
-    print("\n".join(map(lambda i: str(i) + "     :" + str(m(i)),
-                        range(1,int(input("Enter a number:\n>")) +1 ))))
+    print(printMFunctionUntil(int(input("Enter a number:\n>"))))
 
 if __name__ == "__main__":
     inputNumAndPrintM()
