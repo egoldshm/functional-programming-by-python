@@ -17,6 +17,7 @@ def showMenu():
             7: (py7.inputNumAndPrintTwinPrime,"print twin prime numbers"),
             8: (py8.input3dictsAndMarge, "marge 3 dictantions"),
             0: (exit, "exit")}
+    print()
     print("\n".join(map(lambda i: str(i) + ":\t" + Menu[i][1],Menu)))
     choise = int(input("Enter your choise:\n>"))
     if(choise in Menu):
